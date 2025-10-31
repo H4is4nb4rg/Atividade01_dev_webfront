@@ -7,12 +7,15 @@ Contém 3 páginas interligadas: `index.html`, `projetos.html` e `cadastro.html`
 ## Estrutura do Repositório
 
 /meu-site/
+└── assets/
+    └── images/
 ├── index.html
 ├── projetos.html
 └── cadastro.html
 
 
 ## Páginas
+- **assets/images**: Imagens ilustrando as desrições.  
 - **index.html**: Apresenta a ONG, missão, valores e contato.  
 - **projetos.html**: Lista de projetos com descrição breve.  
 - **cadastro.html**: Formulário simples de cadastro de voluntário.
