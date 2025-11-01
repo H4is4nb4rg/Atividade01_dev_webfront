@@ -89,4 +89,4 @@ Copiar código
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/h4is4nb4rg/AtividadeFinal_Amicao.git
+git clone https://github.com/H4is4nb4rg/Atividade01_dev_webfront.git
