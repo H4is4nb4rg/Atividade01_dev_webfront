@@ -1,0 +1,369 @@
+:root{
+  /* === PALETA DE CORES === */
+  --color-primary: #4B0082;       /* Roxo principal */
+  --color-primary-light: #6a0dad;
+  --color-primary-dark: #3f0070;
+
+  --color-secondary: #FFD700;     /* Amarelo destaque */
+  --color-secondary-light: #FFE76B;
+
+  --color-accent-1: #9370DB;      /* Lilás */
+  --color-accent-2: #8E44AD;      /* Roxo médio */
+
+  --color-neutral-1: #FFFFFF;
+  --color-neutral-2: #F5F5F5;
+  --color-neutral-3: #E0E0E0;
+  --color-neutral-4: #333333;
+
+  /* === TIPOGRAFIA === */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.5rem;
+  --font-xl: 2rem;
+  --font-xxl: 3rem;
+
+  /* === ESPAÇAMENTOS MODULARES === */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+}
+
+/* === RESETA BÁSICO === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  line-height: 1.6;
+}
+
+/* === CABEÇALHO === */
+header {
+  background: var(--color-primary-dark);
+  padding: var(--space-2);
+  text-align: center;
+}
+
+header h1 {
+  font-size: var(--font-xl);
+  margin-bottom: var(--space-1);
+}
+
+/* === NAVEGAÇÃO === */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.main-nav a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: var(--color-neutral-1);
+}
+
+/* === SUBMENU === */
+.has-submenu { position: relative; }
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-primary-dark);
+  padding: var(--space-1);
+  border-radius: 6px;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu {
+  display: block;
+}
+
+.submenu li { margin: 0; }
+
+.submenu a {
+  display: block;
+  padding: var(--space-1);
+  color: var(--color-secondary);
+}
+
+.submenu a:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--color-neutral-1);
+}
+
+/* === HAMBURGUER MENU === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: var(--color-secondary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* === CONTEÚDO PRINCIPAL === */
+main {
+  padding: var(--space-3);
+  text-align: center;
+}
+
+main h2, h3 {
+  color: var(--color-secondary);
+  margin-bottom: var(--space-2);
+}
+
+/* === GRID 12 COLUNAS === */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-2);
+}
+
+.col-12 { grid-column: span 12; }
+
+/* === CARDS DE PROJETOS === */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+.project {
+  background: var(--color-neutral-1);
+  color: var(--color-primary-dark);
+  padding: var(--space-2);
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.project img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: var(--space-1);
+}
+
+/* === BOTÕES === */
+button, .btn {
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+  color: var(--color-neutral-1);
+  padding: var(--space-1) var(--space-2);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* === FORMULÁRIO === */
+input, select {
+  padding: var(--space-1);
+  border-radius: 4px;
+  border: 1px solid var(--color-neutral-3);
+  width: 100%;
+  margin-bottom: var(--space-2);
+}
+
+input:invalid {
+  border-color: #e74c3c;
+}
+
+input:valid {
+  border-color: #2ecc71;
+}
+
+/* === BADGES === */
+.badge {
+  background: var(--color-secondary);
+  color: var(--color-primary-dark);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: var(--font-sm);
+}
+
+/* === MODAL === */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-backdrop.active {
+  display: flex;
+}
+
+.modal {
+  background: var(--color-neutral-1);
+  color: var(--color-neutral-4);
+  padding: var(--space-3);
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.modal .close {
+  float: right;
+  background: none;
+  border: none;
+  font-size: var(--font-lg);
+  cursor: pointer;
+}
+
+/* ==== IMAGENS RESPONSIVAS E ADAPTÁVEIS ==== */
+img {
+  width: 40%;              /* ajuste o tamanho que quiser (ex: 60%, 80%, etc.) */
+  height: auto;            /* mantém proporção da imagem */
+  display: block;          /* transforma em bloco para poder centralizar */
+  margin: 0 auto;          /* centraliza horizontalmente */
+  max-width: 100%;         /* evita ultrapassar a largura da tela */
+  border-radius: var(--spacing-8); /* cantos levemente arredondados */
+  object-fit: cover;       /* mantém proporções sem distorcer */
+  object-position: center; /* foca o centro da imagem */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* ==== EFEITO HOVER SUAVE (opcional, mas profissional) ==== */
+img:hover {
+  transform: scale(1.03);   /* Leve aumento ao passar o mouse */
+  filter: brightness(1.05); /* Aumenta brilho sutilmente */
+}
+
+/* ==== CONTÊINER DE IMAGEM PADRÃO PARA PROJETOS ==== */
+.image-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;     /* Mantém proporção de vídeo/paisagem */
+  overflow: hidden;         /* Evita que a imagem ultrapasse o container */
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* Faz o corte proporcional perfeito */
+}
+
+/* === RODAPÉ === */
+footer {
+  background: var(--color-primary-dark);
+  text-align: center;
+  padding: var(--space-2);
+  color: var(--color-secondary);
+}
+
+
+
+/* ===== Estilo do formulário de cadastro ===== */
+form {
+  max-width: 500px;         /* limita a largura total do formulário */
+  margin: 0 auto;           /* centraliza o formulário */
+  background: var(--color-neutral-light);
+  padding: var(--spacing-24);
+  border-radius: 8px;
+  color: var(--color-neutral-dark);
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+form input,
+form select {
+  width: 80%;               /* diminui a largura dos campos (ajuste aqui) */
+  padding: 8px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 5px;
+  margin-bottom: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;       /* centraliza os campos */
+}
+
+form button {
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+
+/* === BREAKPOINTS === */
+@media (max-width: 992px) {
+  .project-list { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 768px) {
+  .main-nav ul {
+    display: none;
+    flex-direction: column;
+    background: var(--color-primary-dark);
+    padding: var(--space-2);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+  }
+  .main-nav ul.active {
+    display: flex;
+  }
+  .hamburger { display: flex; margin: 0 auto; }
+  .project-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  header h1 { font-size: var(--font-lg); }
+}
