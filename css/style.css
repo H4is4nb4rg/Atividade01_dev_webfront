@@ -262,22 +262,17 @@ input:valid {
 
 /* ==== IMAGENS RESPONSIVAS E ADAPTÁVEIS ==== */
 img {
-  width: 40%;              /* ajuste o tamanho que quiser (ex: 60%, 80%, etc.) */
+  width: 500px;              /* ajuste o tamanho que quiser (ex: 60%, 80%, etc.) */
   height: auto;            /* mantém proporção da imagem */
   display: block;          /* transforma em bloco para poder centralizar */
   margin: 0 auto;          /* centraliza horizontalmente */
-  max-width: 100%;         /* evita ultrapassar a largura da tela */
+  max-width: 30%;         /* evita ultrapassar a largura da tela */
   border-radius: var(--spacing-8); /* cantos levemente arredondados */
   object-fit: cover;       /* mantém proporções sem distorcer */
   object-position: center; /* foca o centro da imagem */
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* ==== EFEITO HOVER SUAVE (opcional, mas profissional) ==== */
-img:hover {
-  transform: scale(1.03);   /* Leve aumento ao passar o mouse */
-  filter: brightness(1.05); /* Aumenta brilho sutilmente */
-}
 
 /* ==== CONTÊINER DE IMAGEM PADRÃO PARA PROJETOS ==== */
 .image-container {
@@ -342,11 +337,11 @@ form button {
 
 
 /* === BREAKPOINTS === */
-@media (max-width: 992px) {
+@media (max-width: 700px) {
   .project-list { grid-template-columns: repeat(2,1fr); }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 450px) {
   .main-nav ul {
     display: none;
     flex-direction: column;
@@ -366,4 +361,63 @@ form button {
 
 @media (max-width: 480px) {
   header h1 { font-size: var(--font-lg); }
+}
+
+/* ===== Acessibilidade ===== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Modo alto contraste */
+body.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+body.high-contrast a {
+  color: #ff0 !important;
+}
+
+/* Botão de contraste */
+.contrast-toggle {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1001;
+}
+
+/* Imagens responsivas e centralizadas */
+img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  img {
+    max-width: 50%;
+  }
 }

@@ -56,3 +56,13 @@ document.getElementById('modal')?.addEventListener('click', e => {
   if (e.target.id === 'modal') closeModal();
 });
 
+// ===== Botão de Alto Contraste =====
+const contrastButton = document.createElement('button');
+contrastButton.textContent = 'Alto Contraste';
+contrastButton.classList.add('contrast-toggle');
+document.body.appendChild(contrastButton);
+
+contrastButton.addEventListener('click', () => {
+  document.body.classList.toggle('high-contrast');
+});
+
